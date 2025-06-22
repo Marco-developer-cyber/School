@@ -28,13 +28,19 @@ const Header = () => {
     { name: "Учебники", path: "/books" },
     { name: "Расписание", path: "/schedule" },
     { name: "Новости", path: "/news" },
+    { name: "О школе", path: "/about" },
     { name: "Контакты", path: "/contacts" },
   ];
 
   return (
     <header
-      className={`fixed-top py-2 transition-all ${isScrolled ? "bg-white shadow-sm" : "bg-light"}`}
-      style={{ borderBottom: isScrolled ? "none" : `1px solid rgba(0,0,0,0.1)`, transition: "0.5s" }}
+      className={`fixed-top py-2 transition-all ${
+        isScrolled ? "bg-white shadow-sm" : "bg-light"
+      }`}
+      style={{
+        borderBottom: isScrolled ? "none" : `1px solid rgba(0,0,0,0.1)`,
+        transition: "0.5s",
+      }}
     >
       <div className="container">
         <nav className="navbar navbar-expand-lg p-0">
@@ -46,10 +52,7 @@ const Header = () => {
               className="me-2"
               style={{ height: "40px" }}
             /> */}
-            <span 
-              className="fw-bold" 
-              style={{ color: themeColors.primary }}
-            >
+            <span className="fw-bold" style={{ color: themeColors.primary }}>
               Школа №12
             </span>
           </Link>
@@ -65,8 +68,10 @@ const Header = () => {
           </button>
 
           {/* Основное меню */}
-          <div 
-            className={`collapse navbar-collapse ${isMobileMenuOpen ? "show" : ""}`}
+          <div
+            className={`collapse navbar-collapse ${
+              isMobileMenuOpen ? "show" : ""
+            }`}
             id="navbarNav"
           >
             <ul className="navbar-nav ms-auto">
@@ -85,19 +90,20 @@ const Header = () => {
             </ul>
 
             {/* Кнопка входа (опционально) */}
-            <button
-              className="btn ms-lg-3"
-              style={{
-                backgroundColor: themeColors.secondary,
-                color: "white",
-              }}
-            >
-              Войти
-            </button>
+            <Link to={'/login'}>
+              <button
+                className="btn ms-lg-3"
+                style={{
+                  backgroundColor: themeColors.secondary,
+                  color: "white",
+                }}
+              >
+                Войти
+              </button>
+            </Link>
           </div>
         </nav>
       </div>
-      
     </header>
   );
 };

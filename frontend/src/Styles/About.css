@@ -1,0 +1,245 @@
+/* Основные стили */
+.about-page {
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Герой-секция */
+.about-hero {
+  background: linear-gradient(rgba(46, 134, 171, 0.8), rgba(46, 134, 171, 0.8)), 
+              url('/about/hero-bg.jpg') center/cover;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-hero p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Секции */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-icon {
+  font-size: 2rem;
+  color: #2E86AB;
+  margin-right: 1rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #2E86AB;
+}
+
+/* История */
+.history-section {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+.history-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.history-text {
+  flex: 1;
+}
+
+.history-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.history-image {
+  flex: 1;
+}
+
+.history-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Галерея */
+.gallery-section {
+  padding: 80px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+/* Достижения */
+.achievements-section {
+  padding: 80px 0;
+  background: #f0f7fa;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.achievement-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+}
+
+.achievement-year {
+  background: #2E86AB;
+  color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.achievement-card h3 {
+  color: #2E86AB;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Видео */
+.video-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-top: 30px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Контакты */
+.contacts-section {
+  padding: 80px 0;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.contact-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contact-card h3 {
+  color: #2E86AB;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.contact-card p {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .history-content {
+    flex-direction: column;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+}

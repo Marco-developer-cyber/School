@@ -1,0 +1,250 @@
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Основные стили */
+.contacts-page {
+  padding-top: 80px;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.contacts-header {
+  background: linear-gradient(135deg, #2E86AB 0%, #4A9FC1 25%, #F18F01 50%, #F9A826 75%, #2E86AB 100%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease-in-out infinite;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contacts-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.1s forwards;
+}
+
+.contacts-header p {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+
+.contacts-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Блок с контактами */
+.contacts-info {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+.contacts-info h2 {
+  color: #2E86AB;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.3s forwards;
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* First contact item comes after the h2 */
+.contacts-info > .contact-item:nth-of-type(1) {
+  animation-delay: 0.4s;
+}
+
+.contacts-info > .contact-item:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+
+.contacts-info > .contact-item:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+
+.contacts-info > .contact-item:nth-of-type(4) {
+  animation-delay: 1s;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #F18F01;
+  margin-right: 1rem;
+  margin-top: 0.3rem;
+}
+
+.contact-item h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.contact-item p {
+  color: #666;
+  margin: 0.3rem 0;
+}
+
+/* Форма обратной связи */
+.contacts-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  animation: fadeInRight 0.8s ease-out 0.2s both;
+}
+
+.contacts-form h2 {
+  color: #2E86AB;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.3s forwards;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.contacts-form form .form-group:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+.contacts-form form .form-group:nth-of-type(2) {
+  animation-delay: 0.7s;
+}
+
+.contacts-form form .form-group:nth-of-type(3) {
+  animation-delay: 0.9s;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background: #F18F01;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 1.1s forwards;
+}
+
+.submit-btn:hover {
+  background: #e07f00;
+  transform: translateY(-2px);
+}
+
+/* Карта */
+.contacts-map {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out 1.2s forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .contacts-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .contacts-header h1 {
+    font-size: 2rem;
+  }
+}

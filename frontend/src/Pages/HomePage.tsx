@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faBookOpen, 
@@ -14,26 +14,53 @@ import "../Styles/HomePage.css";
 const HomePage = () => {
   const [studentCount, setStudentCount] = useState(0);
   const [teacherCount, setTeacherCount] = useState(0);
+  const [classCount, setClassCount] = useState(0);
+  const statsRef = useRef(null);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
 
   useEffect(() => {
-    const animateNumbers = () => {
-      let step = 0;
-      const interval = setInterval(() => {
-        step += 1;
-        setStudentCount(prev => Math.min(prev + 20, 850));
-        setTeacherCount(prev => Math.min(prev + 1, 45));
-        if (step >= 45) clearInterval(interval);
-      }, 50);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsStatsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
     };
-    animateNumbers();
   }, []);
+
+  useEffect(() => {
+    if (isStatsVisible) {
+      const animateNumbers = () => {
+        let step = 0;
+        const interval = setInterval(() => {
+          step += 1;
+          setStudentCount(prev => Math.min(prev + 20, 2500));
+          setTeacherCount(prev => Math.min(prev + 1, 107));
+          setClassCount(prev => Math.min(prev + 1, 60));
+          if (step >= 405) clearInterval(interval);
+        }, 50);
+      };
+      animateNumbers();
+    }
+  }, [isStatsVisible]);
 
   return (
     <div className="home-container">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Добро пожаловать в <span>Школу №1</span></h1>
+          <h1>Добро пожаловать в <span>Школу №12</span></h1>
           <p>Инновационное обучение для будущих лидеров</p>
           <div className="hero-buttons">
             <Link to="/books" className="btn-primary">
@@ -46,11 +73,18 @@ const HomePage = () => {
         </div>
         <div className="hero-image">
           <div className="image-glow"></div>
+          <div className="school-photo">
+            <img 
+              src="https://avatars.mds.yandex.net/get-altay/3954938/2a000001765534b246e1368007e64c8a6638/L_height" 
+              alt="Школа №12" 
+              className="hover-effect-image"
+            />
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="stats-section">
+      <section className="stats-section" ref={statsRef}>
         <div className="stat-card">
           <FontAwesomeIcon icon={faGraduationCap} className="stat-icon" />
           <h3>{studentCount}+</h3>
@@ -63,7 +97,7 @@ const HomePage = () => {
         </div>
         <div className="stat-card">
           <FontAwesomeIcon icon={faUsers} className="stat-icon" />
-          <h3>11</h3>
+          <h3>{classCount}</h3>
           <p>Классов</p>
         </div>
       </section>

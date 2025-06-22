@@ -1,0 +1,62 @@
+/* Страница 404 */
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 2rem;
+  text-align: center;
+}
+
+.not-found-content {
+  max-width: 600px;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.error-icon {
+  font-size: 5rem;
+  color: #2E86AB;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-icon span {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.not-found-content h1 {
+  color: #2E86AB;
+  margin-bottom: 1rem;
+}
+
+.not-found-content p {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #2E86AB;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.home-button:hover {
+  background: #1a5a7a;
+  transform: translateY(-2px);
+}
